@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PadleController : MonoBehaviour
+public class PaddleController1 : MonoBehaviour
 {
     HingeJoint hing;
     JointMotor motor;
@@ -30,22 +30,10 @@ public class PadleController : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.A))
         {
-            PaddleLeft();
-        }
-
-        if(Input.GetKey(KeyCode.D))
-        {
-
-        }
-    }
-
-
-    void PaddleLeft()
-    {
-        Debug.Log("lefty");
+            Debug.Log("lefty");
             hing.useMotor = true;
             motor.force = 10000;
             hing.motor = motor;
+        }
     }
-
 }

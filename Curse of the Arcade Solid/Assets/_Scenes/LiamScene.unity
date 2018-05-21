@@ -121,7 +121,6 @@ GameObject:
   - component: {fileID: 16979768}
   - component: {fileID: 16979767}
   - component: {fileID: 16979766}
-  - component: {fileID: 16979765}
   m_Layer: 0
   m_Name: Paddle2
   m_TagString: Untagged
@@ -129,17 +128,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &16979765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 16979764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72019053b03771e4aa7fe4ea5bb01467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!59 &16979766
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -158,7 +146,7 @@ HingeJoint:
     targetPosition: 0
   m_UseMotor: 1
   m_Motor:
-    targetVelocity: 0
+    targetVelocity: -1000
     force: 0
     freeSpin: 0
   m_UseLimits: 1
@@ -494,7 +482,7 @@ SphereCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 957043925}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: dd36ed920caf5374aa36e70b2b924640, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -514,7 +502,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 957043925}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1, y: 3.43, z: 0.18}
+  m_LocalPosition: {x: -1.35, y: 3.43, z: -0.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -822,7 +810,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1613862304}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.8445643, y: -0.6693798, z: 2.4417741}
+  m_LocalPosition: {x: -0.5, y: -0.6693798, z: 1.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1835225922}
@@ -1035,7 +1023,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1949410630}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: dd36ed920caf5374aa36e70b2b924640, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1077,7 +1065,7 @@ HingeJoint:
     targetPosition: 0
   m_UseMotor: 1
   m_Motor:
-    targetVelocity: 0
+    targetVelocity: 1000
     force: 0
     freeSpin: 0
   m_UseLimits: 1
