@@ -45,4 +45,9 @@ public class BossMovement : MonoBehaviour
     {
         dir = direct;
     }
+
+    public void stopBoss()
+    {
+        ibossSpeed = 0.0f;
+    }
 }
