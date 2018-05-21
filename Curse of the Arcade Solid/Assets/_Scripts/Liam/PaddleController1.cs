@@ -30,7 +30,6 @@ public class PaddleController1 : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.A))
         {
-            Debug.Log("lefty");
             hing.useMotor = true;
             motor.force = 10000;
             hing.motor = motor;
