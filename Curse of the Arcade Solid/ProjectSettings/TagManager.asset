@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DesstroyAble
   - Ball
+  - bossSpawn
   layers:
   - Default
   - TransparentFX

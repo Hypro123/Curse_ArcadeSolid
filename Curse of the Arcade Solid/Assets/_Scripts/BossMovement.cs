@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossMovement : MonoBehaviour
 {
     [SerializeField]
-    int ibossSpeed = 10;
+	float ibossSpeed = 10.0f;
     [SerializeField]
     string SpawnBossTag = "bossSpawn";
     [SerializeField]
@@ -21,7 +21,7 @@ public class BossMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        this.transform.position += this.transform.forward * ibossSpeed * Time.deltaTime;
+        this.transform.position -= this.transform.forward * ibossSpeed * Time.deltaTime;
 	}
 
     void spawn()
