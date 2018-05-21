@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossMovement : MonoBehaviour
 {
     [SerializeField]
-    int ibossSpeed = 10;
+    float ibossSpeed = 10;
     [SerializeField]
     string SpawnBossTag = "bossSpawn";
     [SerializeField]
@@ -28,9 +28,6 @@ public class BossMovement : MonoBehaviour
     {
         if(this.GetComponent<BossHP>().hp > 0)
         this.transform.position -= dir * ibossSpeed * Time.deltaTime;
-
-        if (Input.GetKeyDown(KeyCode.A))
-            spawn();
     }
 
     void spawn()
