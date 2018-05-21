@@ -18,7 +18,6 @@ public class BallHit : MonoBehaviour
         {
             //Debug.Log("C# is fuck");
             collision.gameObject.GetComponent<ChildBlock>().setThisInactive();
-
         }
     }
 }
