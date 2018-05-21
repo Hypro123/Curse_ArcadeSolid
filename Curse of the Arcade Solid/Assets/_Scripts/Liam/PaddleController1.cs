@@ -28,7 +28,7 @@ public class PaddleController1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.A))
+        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             hing.useMotor = true;
             motor.force = 10000;

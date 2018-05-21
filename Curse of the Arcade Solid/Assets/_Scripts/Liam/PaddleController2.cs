@@ -7,11 +7,9 @@ public class PaddleController2 : MonoBehaviour
     HingeJoint hing;
     JointMotor motor;
 
-    /*
-     traget force for the opposite paddle needs
+    /* traget force for the opposite paddle needs
      to be -1000
-     and the min limite needs to be -40
-     */
+     and the min limite needs to be -40 */
     
 	// Use this for initialization
 	void Start ()
@@ -28,7 +26,7 @@ public class PaddleController2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.D))
+        if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             Debug.Log("Righty");
             hing.useMotor = true;
