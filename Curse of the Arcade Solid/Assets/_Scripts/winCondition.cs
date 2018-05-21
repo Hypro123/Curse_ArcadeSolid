@@ -12,16 +12,26 @@ enum winSinario
 
 public class winCondition : MonoBehaviour
 {
-    [SerializeField]
+    [SerializeField][Tooltip("The end point")]
     private GameObject end;
+    private GameObject bossOBJ;
     [SerializeField]
-    private GameObject start;
+    private AudioSource source;
+    [SerializeField]
+    private AudioClip winClip;
+    [SerializeField]
+    private AudioClip loseClip;
 
     private winSinario win = winSinario.NONE;
 
+    void Awake()
+    {
+        bossOBJ = GameObject.FindGameObjectWithTag("Boss");
+    }
+
     void Update()
     {
-        if(end.transform.position.z >= start.transform.position.z)
+        if(end.transform.position.z >= bossOBJ.transform.position.z)
         {
             win = winSinario.LOSS;
         }
@@ -35,13 +45,15 @@ public class winCondition : MonoBehaviour
         {
             case winSinario.WIN:
             {
-               //Debug.Log("you win!!");
-                break;
+                    Debug.Log("you win!!");
+                    source.PlayOneShot(winClip, 5.0f);
+                    break;
             }
             case winSinario.LOSS:
             {
                     //Debug.Log("You are bad at league!");
                     GameObject.FindGameObjectWithTag("Boss").GetComponent<BossMovement>().stopBoss();
+                    source.PlayOneShot(loseClip, 5.0f);
                     break;
             }
             default:

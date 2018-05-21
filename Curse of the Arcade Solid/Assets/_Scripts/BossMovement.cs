@@ -6,9 +6,8 @@ public class BossMovement : MonoBehaviour
 {
     [SerializeField]
     float ibossSpeed = 10;
-    [SerializeField]
+    [SerializeField][Tooltip("This is the tag the defines on of the locations the boss can spawn in!")]
     string SpawnBossTag = "bossSpawn";
-    [SerializeField]
     GameObject[] tPositions;
 
     [HideInInspector]

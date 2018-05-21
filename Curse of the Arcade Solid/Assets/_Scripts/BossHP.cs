@@ -29,12 +29,6 @@ public class BossHP : MonoBehaviour {
     {
         if (iHealth < 0)
             iHealth = 0;
-
-        //temp test code --- REMOVE BEFORE TESTING FINAL RESULT
-        //if (Input.GetKeyDown(KeyCode.W) && iHealth > 0)
-        //{
-        //    this.transform.GetChild(iHealth - 1).GetComponent<ChildBlock>().setThisInactive();
-        //}
     }
 
     public void TakeDmg()
