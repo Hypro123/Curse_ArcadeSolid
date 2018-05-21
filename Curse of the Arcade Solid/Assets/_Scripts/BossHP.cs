@@ -10,18 +10,20 @@ public class BossHP : MonoBehaviour {
 	// Use this for initialization
 	void Awake ()
     {
+        //amount of children in the object specifies the amount of health
         iHealth = this.transform.childCount;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            Transform t = this.transform.GetChild(1);
-            t.gameObject.SetActive(false);
-            iHealth--;
-        }
+        //make sure the hp doesnt overflow
+        if (iHealth > 0)
+            iHealth = 0;
 	}
-
+    //reduces health by 1, called by child block
+    public void TakeDmg()
+    {
+        iHealth--;
+    }
 }
