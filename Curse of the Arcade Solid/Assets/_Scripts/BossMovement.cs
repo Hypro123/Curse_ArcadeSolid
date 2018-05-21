@@ -27,11 +27,11 @@ public class BossMovement : MonoBehaviour
 	void Update ()
     {
         if(this.GetComponent<BossHP>().hp > 0)
-        this.transform.position += dir * ibossSpeed * Time.deltaTime;
+        this.transform.position -= dir * ibossSpeed * Time.deltaTime;
 
-        //if (Input.GetKeyDown(KeyCode.A))
-        //    spawn();
-	}
+        if (Input.GetKeyDown(KeyCode.A))
+            spawn();
+    }
 
     void spawn()
     {
