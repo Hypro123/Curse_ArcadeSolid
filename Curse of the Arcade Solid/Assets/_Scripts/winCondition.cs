@@ -35,11 +35,14 @@ public class winCondition : MonoBehaviour
         {
             case winSinario.WIN:
             {
+               //Debug.Log("you win!!");
                 break;
             }
             case winSinario.LOSS:
             {
-                break;
+                    //Debug.Log("You are bad at league!");
+                    GameObject.FindGameObjectWithTag("Boss").GetComponent<BossMovement>().stopBoss();
+                    break;
             }
             default:
             {
