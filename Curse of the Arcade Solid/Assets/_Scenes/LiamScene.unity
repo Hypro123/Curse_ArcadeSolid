@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 16979768}
   - component: {fileID: 16979767}
   - component: {fileID: 16979766}
+  - component: {fileID: 16979765}
   m_Layer: 0
   m_Name: Paddle2
   m_TagString: Untagged
@@ -128,6 +129,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &16979765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 16979764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd90d7ce63bd5c1439efcbad9f80e639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!59 &16979766
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -138,7 +150,7 @@ HingeJoint:
   m_Anchor: {x: -0.18, y: -0.27, z: -0.52}
   m_Axis: {x: -1.35, y: 40, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.5088577, y: -1.9334775, z: -1.7684911}
+  m_ConnectedAnchor: {x: -0.47255892, y: 0.093399115, z: -0.24139276}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -146,13 +158,13 @@ HingeJoint:
     targetPosition: 0
   m_UseMotor: 1
   m_Motor:
-    targetVelocity: -1000
+    targetVelocity: 1000
     force: 0
     freeSpin: 0
   m_UseLimits: 1
   m_Limits:
-    min: -40
-    max: 0
+    min: 0
+    max: 40
     bounciness: 0
     bounceMinVelocity: 0.2
     contactDistance: 0
@@ -215,7 +227,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 16979764}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: dd36ed920caf5374aa36e70b2b924640, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -234,13 +246,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 16979764}
-  m_LocalRotation: {x: -0, y: -0.94234794, z: -0, w: 0.3346347}
-  m_LocalPosition: {x: -2.99, y: 0.78, z: 3.21}
+  m_LocalRotation: {x: -0.91755563, y: -0, z: 0.39760754, w: 0}
+  m_LocalPosition: {x: -2.49, y: 0.78, z: 2.98}
   m_LocalScale: {x: 0.7924126, y: 0.897532, z: 4.2115674}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: -140.899, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -133.143, z: 180.00002}
 --- !u!1 &474267051
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,7 +723,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1416479870}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.853, y: 1, z: 6.053}
+  m_LocalPosition: {x: -0.66, y: 1, z: 4.75}
   m_LocalScale: {x: 0.69744164, y: 0.23912027, z: 0.69744164}
   m_Children: []
   m_Father: {fileID: 0}
