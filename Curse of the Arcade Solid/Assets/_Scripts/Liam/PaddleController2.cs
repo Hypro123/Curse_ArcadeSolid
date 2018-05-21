@@ -32,7 +32,7 @@ public class PaddleController2 : MonoBehaviour
         {
             Debug.Log("Righty");
             hing.useMotor = true;
-            motor.force = -10000;
+            motor.force = 10000;
             hing.motor = motor;
         }
     }
