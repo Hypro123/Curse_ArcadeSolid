@@ -17,6 +17,7 @@ public class BallController : MonoBehaviour
         {
             //gameObject.AddComponent<Rigidbody>();
             Invoke("ballController", 2);
+            Debug.Log("tis not fuck");
         }
 
         if(collision.gameObject.tag == "child")
