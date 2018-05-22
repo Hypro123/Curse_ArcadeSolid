@@ -12,20 +12,37 @@ enum winSinario
 
 public class winCondition : MonoBehaviour
 {
+    [Header("Locations")]
     [SerializeField][Tooltip("The end point")]
     private GameObject end;
     private GameObject bossOBJ;
+    [Header("Sound")]
     [SerializeField]
     private AudioSource source;
     [SerializeField]
     private AudioClip winClip;
     [SerializeField]
     private AudioClip loseClip;
+    [SerializeField]
+    private AudioClip backgroundMusic;
+    [Header("Canvas references")]
+    [SerializeField][Tooltip("Reference to the win canvas!")]
+    private Canvas w;
+    [SerializeField][Tooltip("Reference to the lose canvas!")]
+    private Canvas l;
+    [Header("Scene name references")]
+    [SerializeField]
+    private string scne = "MasterScene";
+    [SerializeField]
+    private string mmenu = "MainMenu";
 
     private winSinario win = winSinario.NONE;
 
     void Awake()
     {
+        w.enabled = false;
+        l.enabled = false;
+        source.clip = backgroundMusic;
         bossOBJ = GameObject.FindGameObjectWithTag("Boss");
     }
 
@@ -47,6 +64,7 @@ public class winCondition : MonoBehaviour
             {
                     Debug.Log("you win!!");
                     source.PlayOneShot(winClip, 5.0f);
+                    winCanvas();
                     break;
             }
             case winSinario.LOSS:
@@ -54,12 +72,37 @@ public class winCondition : MonoBehaviour
                     //Debug.Log("You are bad at league!");
                     GameObject.FindGameObjectWithTag("Boss").GetComponent<BossMovement>().stopBoss();
                     source.PlayOneShot(loseClip, 5.0f);
+                    loseCanvas();
                     break;
             }
             default:
             {
+                source.Play();
                 break;
             }
         }
     }
+    //reloads current scene, 
+    public void reLoadScene()
+    {
+        SceneManager.LoadScene(scne);
+    }
+    //returns to main menu scene
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene(mmenu);
+    }
+    //win canvas enable
+    void winCanvas()
+    {
+        l.enabled = false;
+        w.enabled = true;
+    }
+    //lose canvas enable
+    void loseCanvas()
+    {
+        w.enabled = false;
+        l.enabled = true;
+    }
+
 }
