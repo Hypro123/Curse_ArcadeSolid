@@ -9,7 +9,7 @@ public class BossMovement : MonoBehaviour
     [SerializeField][Tooltip("This is the tag the defines on of the locations the boss can spawn in!")]
     string SpawnBossTag = "bossSpawn";
     GameObject[] tPositions;
-
+    
     [HideInInspector]
     public Vector3 dir;
 
@@ -28,7 +28,7 @@ public class BossMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if(this.GetComponent<BossHP>().hp > 0)
+        if(this.GetComponent<BossHP>().getHealth() > 0)
         this.transform.position -= dir * ibossSpeed * Time.deltaTime;
     }
 
@@ -44,7 +44,6 @@ public class BossMovement : MonoBehaviour
             else
                 continue;
         }
-        this.GetComponent<BossHP>().resetHealth();
     }
     public void changeDir(Vector3 direct)
     {

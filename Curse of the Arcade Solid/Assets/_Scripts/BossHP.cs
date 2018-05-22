@@ -10,18 +10,12 @@ public class BossHP : MonoBehaviour {
     private string childTag = "child";
     [SerializeField]
     private int iHealth = 0;
-    [HideInInspector]
-    public int hp
+
+    public int getHealth()
     {
-        get
-        {
-            return iHealth;
-        }
-        set
-        {
-            iHealth = hp;
-        }
+        return iHealth;
     }
+
 	// Use this for initialization
 	void Awake ()
     {

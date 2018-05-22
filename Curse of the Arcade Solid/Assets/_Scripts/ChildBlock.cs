@@ -21,7 +21,7 @@ public class ChildBlock : MonoBehaviour {
 
     public bool endGame()
     {
-        if (this.GetComponentInParent<BossHP>().hp > 0)
+        if (this.GetComponentInParent<BossHP>().getHealth() > 0)
             return true;
         else
             return false;

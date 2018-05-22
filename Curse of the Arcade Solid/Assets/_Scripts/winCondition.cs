@@ -31,11 +31,11 @@ public class winCondition : MonoBehaviour
 
     void Update()
     {
-        if(end.transform.position.z >= bossOBJ.transform.position.z)
+        if(end.transform.position.z - bossOBJ.transform.position.z == 0)
         {
             win = winSinario.LOSS;
         }
-        else if(GameObject.FindGameObjectWithTag("Boss").GetComponent<BossHP>().hp == 0)
+        else if(GameObject.FindGameObjectWithTag("Boss").GetComponent<BossHP>().getHealth() == 0)
         {
             win = winSinario.WIN;
         }
