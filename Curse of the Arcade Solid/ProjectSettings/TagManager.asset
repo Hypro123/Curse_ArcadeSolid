@@ -9,6 +9,9 @@ TagManager:
   - bossSpawn
   - Boss
   - child
+  - GameManager
+  - Ball Spawner
+  - Paddle
   layers:
   - Default
   - TransparentFX
