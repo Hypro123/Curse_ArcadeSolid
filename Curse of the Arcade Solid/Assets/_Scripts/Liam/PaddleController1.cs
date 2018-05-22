@@ -24,7 +24,7 @@ public class PaddleController1 : MonoBehaviour
     void Update()
     {
         hing.useMotor = false;
-        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) && !GameObject.FindGameObjectWithTag("GameManager").GetComponent<winCondition>().getEndGame())
         {
             hing.useMotor = true;
             motor.force = 10000;
