@@ -13,10 +13,21 @@ public class BallController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "child")
+        if(collision.gameObject.tag == "Paddle")
+        {
+            //gameObject.AddComponent<Rigidbody>();
+            Invoke("ballController", 2);
+        }
+
+        if(collision.gameObject.tag == "child")
         {
             this.gameObject.SetActive(false);
             collision.gameObject.GetComponent<ChildBlock>().setThisInactive();
         }
+    }
+
+    void ballController()
+    {
+        BallSpawner.GetComponent<CreateBall>().BallCreate();
     }
 }
