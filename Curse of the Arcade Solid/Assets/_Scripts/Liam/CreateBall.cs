@@ -12,4 +12,10 @@ public class CreateBall : MonoBehaviour
     {
         MagicBall = Instantiate(MagicBallPrefab, SpawnPosition) as GameObject;
     }
+
+
+    public void BallCreate()
+    {
+        MagicBall = Instantiate(MagicBallPrefab, SpawnPosition) as GameObject;
+    }
 }

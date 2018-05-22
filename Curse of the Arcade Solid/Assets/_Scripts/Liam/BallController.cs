@@ -4,17 +4,30 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
+    private GameObject BallSpawner;
+
+    private void Awake()
+    {
+        BallSpawner = GameObject.FindGameObjectWithTag("Ball Spawner");
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Paddle")
         {
-            gameObject.AddComponent<Rigidbody>();
+            //gameObject.AddComponent<Rigidbody>();
+            Invoke("ballController", 2);
         }
 
         if(collision.gameObject.tag == "child")
         {
-            collision.gameObject.GetComponent<ChildBlock>().setThisInactive();
             this.gameObject.SetActive(false);
+            collision.gameObject.GetComponent<ChildBlock>().setThisInactive();
         }
+    }
+
+    void ballController()
+    {
+        BallSpawner.GetComponent<CreateBall>().BallCreate();
     }
 }
