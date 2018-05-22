@@ -6,16 +6,25 @@ public class CreateBall : MonoBehaviour
 {
     public Transform SpawnPosition;
     public GameObject BallPrefab;
-    public GameObject MagicBall;
 
-    void Awake()
+    [SerializeField] [Tooltip("in Seconds!")]
+    private float ballSpawnDelay = 2.0f;
+
+    private float Timer = 0.0f;
+
+    void Update()
     {
-        MagicBall = Instantiate(BallPrefab, SpawnPosition) as GameObject;
+
+        Timer += Time.deltaTime;
+        if (Timer >= ballSpawnDelay) {
+            if (!GameObject.FindGameObjectWithTag("GameManager").GetComponent<winCondition>().getEndGame())
+                BallCreate();
+            Timer = 0;
+        }
     }
 
-
-    public void BallCreate()
+    void BallCreate()
     {
-        MagicBall = Instantiate(BallPrefab, SpawnPosition) as GameObject;
+        Instantiate(BallPrefab, SpawnPosition);
     }
 }
