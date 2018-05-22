@@ -13,9 +13,12 @@ public class BossMovement : MonoBehaviour
     [HideInInspector]
     public Vector3 dir;
 
+    private Transform[] storechildrenAmount;
+
 	// Use this for initialization
 	void Awake ()
     {
+        storechildrenAmount = this.GetComponentsInChildren<Transform>();
         dir = this.transform.forward;
         tPositions = GameObject.FindGameObjectsWithTag(SpawnBossTag);
         spawn();
@@ -34,11 +37,14 @@ public class BossMovement : MonoBehaviour
         int i = Random.Range(0, tPositions.Length);
         this.transform.position = tPositions[i].transform.position;
 
-        for (int j = 0; j < this.transform.childCount; ++j)
+        foreach (Transform t in storechildrenAmount)
         {
-            this.transform.GetChild(j).GetComponent<ChildBlock>().resetChild();
-            this.GetComponent<BossHP>().resetHealth();
+            if (t.tag == "child")
+                t.GetComponent<ChildBlock>().resetChild();
+            else
+                continue;
         }
+        this.GetComponent<BossHP>().resetHealth();
     }
     public void changeDir(Vector3 direct)
     {

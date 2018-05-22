@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class BossHP : MonoBehaviour {
 
+    private Transform[] children;
+
+    [SerializeField]
+    private string childTag = "child";
     [SerializeField]
     private int iHealth = 0;
     [HideInInspector]
@@ -21,6 +25,7 @@ public class BossHP : MonoBehaviour {
 	// Use this for initialization
 	void Awake ()
     {
+        children = GetComponentsInChildren<Transform>();
         resetHealth();
     }
 	
@@ -38,7 +43,14 @@ public class BossHP : MonoBehaviour {
     //resets the health
     public void resetHealth()
     {
+        iHealth = 0;
         //health is equal to the amount of children still active
-        iHealth = this.transform.childCount;
+        foreach(Transform t in children)
+        {
+            if(t.tag == childTag)
+            {
+                iHealth++;
+            }
+        }
     }
 }
