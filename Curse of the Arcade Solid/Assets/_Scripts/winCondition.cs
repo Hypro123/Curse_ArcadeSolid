@@ -27,9 +27,9 @@ public class winCondition : MonoBehaviour
     private AudioClip backgroundMusic;
     [Header("Canvas references")]
     [SerializeField][Tooltip("Reference to the win canvas!")]
-    private Canvas w;
+    private GameObject w;
     [SerializeField][Tooltip("Reference to the lose canvas!")]
-    private Canvas l;
+    private GameObject l;
     [Header("Scene name references")]
     [SerializeField]
     private string scne = "MasterScene";
@@ -40,8 +40,8 @@ public class winCondition : MonoBehaviour
 
     void Awake()
     {
-        w.enabled = false;
-        l.enabled = false;
+        w.SetActive(false);
+        l.SetActive(false);
         source.clip = backgroundMusic;
         bossOBJ = GameObject.FindGameObjectWithTag("Boss");
     }
@@ -95,14 +95,14 @@ public class winCondition : MonoBehaviour
     //win canvas enable
     void winCanvas()
     {
-        l.enabled = false;
-        w.enabled = true;
+        l.SetActive(false);
+        w.SetActive(true);
     }
     //lose canvas enable
     void loseCanvas()
     {
-        w.enabled = false;
-        l.enabled = true;
+        w.SetActive(false);
+        l.SetActive(true);
     }
 
 }
