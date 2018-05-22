@@ -22,9 +22,9 @@ public class ChildBlock : MonoBehaviour {
 
     public void setThisInactive()
     {
-        Asource.PlayOneShot(Aclip, volume);
         this.gameObject.SetActive(false);
         this.GetComponentInParent<BossHP>().TakeDmg();        
+        Asource.PlayOneShot(Aclip, volume);
     }
     public void resetChild()
     {

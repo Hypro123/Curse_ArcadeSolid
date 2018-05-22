@@ -126,4 +126,8 @@ public class winCondition : MonoBehaviour
         l.SetActive(true);
     }
 
+    public bool getEndGame()
+    {
+        return endGameBool;
+    }
 }
