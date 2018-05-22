@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23254530016765216}
   - component: {fileID: 54721365765541194}
   - component: {fileID: 59229672212998368}
-  - component: {fileID: 114874698885425922}
+  - component: {fileID: 114508179764658110}
   m_Layer: 9
   m_Name: Paddle1
   m_TagString: Untagged
@@ -41,10 +41,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4759055090684820}
   - component: {fileID: 33476893493174888}
-  - component: {fileID: 136123143013590598}
   - component: {fileID: 54501530640954800}
   - component: {fileID: 23196232633891560}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: PaddleHinge1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,9 +227,9 @@ HingeJoint:
   m_ConnectedAnchor: {x: -0.64902043, y: 2.089979, z: -0.7638059}
   m_UseSpring: 0
   m_Spring:
-    spring: 0
+    spring: 100
     damper: 0
-    targetPosition: 0
+    targetPosition: -40
   m_UseMotor: 1
   m_Motor:
     targetVelocity: 1000
@@ -261,7 +260,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114874698885425922
+--- !u!114 &114508179764658110
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -269,19 +268,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1177911089932550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c0032f7faf67f84399f9857dcb6236e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a68a9d0e3efc7d4caf5f25160b31e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &136123143013590598
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1601213030771020}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
