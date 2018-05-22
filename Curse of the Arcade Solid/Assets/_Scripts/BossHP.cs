@@ -11,6 +11,11 @@ public class BossHP : MonoBehaviour {
     [SerializeField]
     private int iHealth = 0;
 
+    [SerializeField]
+    private bool enableDebug = true;
+
+    ChildBlock[] g;
+
     public int getHealth()
     {
         return iHealth;
@@ -19,6 +24,7 @@ public class BossHP : MonoBehaviour {
 	// Use this for initialization
 	void Awake ()
     {
+        g = GetComponentsInChildren<ChildBlock>();
         children = GetComponentsInChildren<Transform>();
         resetHealth();
     }
@@ -28,6 +34,8 @@ public class BossHP : MonoBehaviour {
     {
         if (iHealth < 0)
             iHealth = 0;
+        if (enableDebug)
+            DebugFunction();
     }
 
     public void TakeDmg()
@@ -46,5 +54,11 @@ public class BossHP : MonoBehaviour {
                 iHealth++;
             }
         }
+    }
+
+    void DebugFunction()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+            g[5].setThisInactive();
     }
 }

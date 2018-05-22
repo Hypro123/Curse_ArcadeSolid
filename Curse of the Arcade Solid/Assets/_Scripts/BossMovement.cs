@@ -9,7 +9,12 @@ public class BossMovement : MonoBehaviour
     [SerializeField][Tooltip("This is the tag the defines on of the locations the boss can spawn in!")]
     string SpawnBossTag = "bossSpawn";
     GameObject[] tPositions;
-    
+
+    public AudioSource dmgSource;
+    public AudioClip dmgClip;
+    [Range(0, 1.0f)]
+    public float dmgVolume = 0.5f;
+
     [HideInInspector]
     public Vector3 dir;
 
