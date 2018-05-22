@@ -9,14 +9,20 @@ public class CreateBall : MonoBehaviour
 
     [SerializeField] [Tooltip("in Seconds!")]
     private float ballSpawnDelay = 2.0f;
+	[SerializeField] [Tooltip("in Seconds!")]
+	private float ballOffset = 0.0f;
 
     private float Timer = 0.0f;
+
+	void Start(){
+		Timer = ballOffset;
+	}
 
     void Update()
     {
 
         Timer += Time.deltaTime;
-        if (Timer >= ballSpawnDelay) {
+		if (Timer >= ballSpawnDelay) {
             if (!GameObject.FindGameObjectWithTag("GameManager").GetComponent<winCondition>().getEndGame())
                 BallCreate();
             Timer = 0;
