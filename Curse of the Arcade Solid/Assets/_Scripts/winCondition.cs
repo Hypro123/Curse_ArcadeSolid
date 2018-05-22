@@ -19,12 +19,24 @@ public class winCondition : MonoBehaviour
     [Header("Sound")]
     [SerializeField]
     private AudioSource source;
+
+    [SerializeField]
+    private AudioSource winLoseMusic;
+
     [SerializeField]
     private AudioClip winClip;
+    [SerializeField][Range(0, 1.0f)]
+    private float volumeWin = 0.5f;
     [SerializeField]
     private AudioClip loseClip;
+    [SerializeField][Range(0, 1.0f)]
+    private float volumeLose = 0.5f;
     [SerializeField]
     private AudioClip backgroundMusic;
+    [SerializeField][Range(0, 1.0f)]
+    private float volumeBackGround = 0.5f;
+
+
     [Header("Canvas references")]
     [SerializeField][Tooltip("Reference to the win canvas!")]
     private GameObject w;
@@ -36,13 +48,18 @@ public class winCondition : MonoBehaviour
     [SerializeField]
     private string mmenu = "MainMenu";
 
+    private bool endGameBool = false;
+
     private winSinario win = winSinario.NONE;
 
     void Awake()
     {
+        endGameBool = false;
         w.SetActive(false);
         l.SetActive(false);
         source.clip = backgroundMusic;
+        source.volume = volumeBackGround;
+        source.Play();
         bossOBJ = GameObject.FindGameObjectWithTag("Boss");
     }
 
@@ -50,35 +67,39 @@ public class winCondition : MonoBehaviour
     {
         if(end.transform.position.z > bossOBJ.transform.position.z)
         {
+            source.Stop();
             win = winSinario.LOSS;
         }
         else if(GameObject.FindGameObjectWithTag("Boss").GetComponent<BossHP>().getHealth() == 0)
         {
+            source.Stop();
             win = winSinario.WIN;
         }
-        
+
         //set up for possible later uses
-        switch (win)
+        if (endGameBool == false)
         {
-            case winSinario.WIN:
+            switch (win)
             {
-                    Debug.Log("you win!!");
-                    source.PlayOneShot(winClip, 5.0f);
-                    winCanvas();
-                    break;
-            }
-            case winSinario.LOSS:
-            {
-                    //Debug.Log("You are bad at league!");
-                    GameObject.FindGameObjectWithTag("Boss").GetComponent<BossMovement>().stopBoss();
-                    source.PlayOneShot(loseClip, 5.0f);
-                    loseCanvas();
-                    break;
-            }
-            default:
-            {
-                source.Play();
-                break;
+                case winSinario.WIN:
+                    {
+                        winLoseMusic.PlayOneShot(winClip, volumeWin);
+                        winCanvas();
+                        endGameBool = true;
+                        break;
+                    }
+                case winSinario.LOSS:
+                    {
+                        GameObject.FindGameObjectWithTag("Boss").GetComponent<BossMovement>().stopBoss();
+                        winLoseMusic.PlayOneShot(loseClip, volumeLose);
+                        loseCanvas();
+                        endGameBool = true;
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
             }
         }
     }
