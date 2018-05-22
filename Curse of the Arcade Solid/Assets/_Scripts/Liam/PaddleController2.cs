@@ -6,6 +6,7 @@ public class PaddleController2 : MonoBehaviour
 {
     HingeJoint hing;
     JointMotor motor;
+    JointSpring HingSpring;
 
     /* traget force for the opposite paddle needs
      to be -1000
@@ -16,23 +17,27 @@ public class PaddleController2 : MonoBehaviour
     {
         hing = GetComponent<HingeJoint>();
         motor = hing.motor;
-        ////motor.force = 100;
-        //motor.targetVelocity = 1000;
         motor.freeSpin = false;
-        //hing.motor = motor;
-        //hing.useMotor = true;
 	}
 
     // Update is called once per frame
     void Update()
     {
+        hing.useMotor = false;
         if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            Debug.Log("Righty");
             hing.useMotor = true;
             motor.force = 10000;
             hing.motor = motor;
         }
+        else
+        {
+            hing.useSpring = true;
+            HingSpring = hing.spring;
+            HingSpring.spring = 20;
+            //HingSpring.damper = 3;
+            HingSpring.targetPosition = -40;
+            hing.spring = HingSpring;
+        }
     }
-
 }

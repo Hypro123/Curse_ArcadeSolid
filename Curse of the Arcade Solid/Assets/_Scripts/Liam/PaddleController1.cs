@@ -6,33 +6,38 @@ public class PaddleController1 : MonoBehaviour
 {
     HingeJoint hing;
     JointMotor motor;
+    JointSpring HingSpring;
 
-    /*
-     traget force for the opposite paddle needs
+    /* traget force for the opposite paddle needs
      to be -1000
-     and the min limite needs to be -40
-     */
+     and the min limite needs to be -40 */
     
 	// Use this for initialization
 	void Start ()
     {
         hing = GetComponent<HingeJoint>();
         motor = hing.motor;
-        ////motor.force = 100;
-        //motor.targetVelocity = 1000;
         motor.freeSpin = false;
-        //hing.motor = motor;
-        //hing.useMotor = true;
 	}
 
     // Update is called once per frame
     void Update()
     {
+        hing.useMotor = false;
         if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             hing.useMotor = true;
             motor.force = 10000;
             hing.motor = motor;
+        }
+        else
+        {
+            hing.useSpring = true;
+            HingSpring = hing.spring;
+            HingSpring.spring = 20;
+            //HingSpring.damper = 3;
+            HingSpring.targetPosition = -40;
+            hing.spring = HingSpring;
         }
     }
 }
