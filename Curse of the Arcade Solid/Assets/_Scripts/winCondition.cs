@@ -48,7 +48,7 @@ public class winCondition : MonoBehaviour
 
     void Update()
     {
-        if(end.transform.position.z - bossOBJ.transform.position.z == 0)
+        if(end.transform.position.z > bossOBJ.transform.position.z)
         {
             win = winSinario.LOSS;
         }
