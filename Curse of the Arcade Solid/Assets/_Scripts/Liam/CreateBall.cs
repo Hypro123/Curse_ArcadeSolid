@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class CreateBall : MonoBehaviour
 {
+    public Transform SpawnPosition;
+    public GameObject MagicBallPrefab;
+    public GameObject MagicBall;
+    public float Timer = 0;
 
-	// Use this for initialization
-	void Start ()
-    {
-		
-	}
-	
 	// Update is called once per frame
 	void Update ()
     {
-	    if(Input.GetKey(KeyCode.LeftShift))
+        Timer++;
+	    if(Timer == 100)
         {
-            //Object.Instantiate<>
+            MagicBall = Instantiate(MagicBallPrefab) as GameObject;
+            //MagicBall.transform.position = GameObject.FindGameObjectWithTag("Ball Spawner");
+            Timer = 0;
         }
 	}
 }
