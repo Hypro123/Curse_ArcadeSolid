@@ -33,11 +33,10 @@ public class PaddleController1 : MonoBehaviour
         else
         {
             hing.useSpring = true;
-            HingSpring = hing.spring;
-            HingSpring.spring = 20;
-            //HingSpring.damper = 3;
-            HingSpring.targetPosition = -40;
-            hing.spring = HingSpring;
+           // HingSpring = hing.spring;
+           // HingSpring.spring = 20;
+           // HingSpring.targetPosition = -40;
+           // hing.spring = HingSpring;
         }
     }
 }
