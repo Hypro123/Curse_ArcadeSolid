@@ -5,17 +5,17 @@ using UnityEngine;
 public class CreateBall : MonoBehaviour
 {
     public Transform SpawnPosition;
-    public GameObject MagicBallPrefab;
+    public GameObject BallPrefab;
     public GameObject MagicBall;
 
     void Awake()
     {
-        MagicBall = Instantiate(MagicBallPrefab, SpawnPosition) as GameObject;
+        MagicBall = Instantiate(BallPrefab, SpawnPosition) as GameObject;
     }
 
 
     public void BallCreate()
     {
-        MagicBall = Instantiate(MagicBallPrefab, SpawnPosition) as GameObject;
+        MagicBall = Instantiate(BallPrefab, SpawnPosition) as GameObject;
     }
 }
