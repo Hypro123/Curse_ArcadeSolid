@@ -19,6 +19,6 @@ public class MainMenu : MonoBehaviour {
         a = this.GetComponent<AudioSource>();
         a.clip = clipIntro;
         a.loop = true;
-        a.Play();
+        //a.Play();
     }
 }

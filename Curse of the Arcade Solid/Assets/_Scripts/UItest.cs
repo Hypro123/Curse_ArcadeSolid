@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public class UItest : MonoBehaviour {
 
     [SerializeField]
-    private string mainMenuString = "MainScene1";
+    private string mainMenuString = "MainMenu";
     [SerializeField]
-    private string GameString1 = "Game1";
+    private string GameString1 = "MasterScene1";
     [SerializeField]
     private string GameString2 = "Game2";
     [SerializeField]
@@ -16,11 +16,11 @@ public class UItest : MonoBehaviour {
 
     public void mainScene()
     {
-        SceneManager.LoadScene(mainMenuString);
+		SceneManager.LoadScene(mainMenuString);
     }
     public void gameScene1()
     {
-        SceneManager.LoadScene(GameString1);
+		SceneManager.LoadScene(GameString1);
     }
     public void gameScene2()
     {
