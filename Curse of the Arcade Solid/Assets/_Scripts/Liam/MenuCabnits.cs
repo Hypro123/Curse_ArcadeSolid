@@ -11,9 +11,9 @@ public class MenuCabnits : MonoBehaviour
         if (collision.gameObject.tag == "child")
         {
             //this.gameObject.SetActive(false);
+			collision.gameObject.GetComponent<ChildBlock>().setThisInactive();
             GameObject destructedPicelGO = Instantiate(DestructedPixelPrefab, collision.gameObject.transform.position, Quaternion.identity);
             Destroy(destructedPicelGO, 25);
-            collision.gameObject.GetComponent<ChildBlock>().setThisInactive();
         }
     }
 }
