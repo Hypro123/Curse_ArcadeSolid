@@ -34,7 +34,7 @@ public class BossMovement : MonoBehaviour
 	void Update ()
     {
         if(this.GetComponent<BossHP>().getHealth() > 0)
-        this.transform.position -= dir * ibossSpeed * Time.deltaTime;
+        this.transform.position += -dir * ibossSpeed * Time.deltaTime;
     }
 
     void spawn()
@@ -50,9 +50,9 @@ public class BossMovement : MonoBehaviour
                 continue;
         }
     }
-    public void changeDir(Vector3 direct)
+    public void reverseDirection()
     {
-        dir = direct;
+        dir = -dir;
     }
 
     public void stopBoss()
