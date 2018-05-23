@@ -8,13 +8,26 @@ public class PaddleController2 : MonoBehaviour
     JointMotor motor;
     JointSpring HingSpring;
 
+    [SerializeField]
+    private AudioSource Asource;
+    [SerializeField]
+    private AudioClip Aclip;
+    [SerializeField]
+    [Range(0, 1.0f)]
+    private float volume = 0.5f;
     /* traget force for the opposite paddle needs
      to be -1000
      and the min limite needs to be -40 */
-    
-	// Use this for initialization
-	void Start ()
+
+    // Use this for initialization
+    void Start ()
     {
+        if(Asource != null)
+        {
+            Asource.clip = Aclip;
+            Asource.volume = volume;
+        }
+
         hing = GetComponent<HingeJoint>();
         motor = hing.motor;
         motor.freeSpin = false;
@@ -29,6 +42,10 @@ public class PaddleController2 : MonoBehaviour
             hing.useMotor = true;
             motor.force = 10000;
             hing.motor = motor;
+            if (Asource != null)
+            {
+                Asource.PlayOneShot(Aclip, volume);
+            }
         }
         else
         {

@@ -21,8 +21,11 @@ public class PaddleController1 : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        Asource.clip = Aclip;
-        Asource.volume = volume;
+        if (Asource != null)
+        {
+            Asource.clip = Aclip;
+            Asource.volume = volume;
+        }
 
         hing = GetComponent<HingeJoint>();
         motor = hing.motor;
@@ -37,7 +40,10 @@ public class PaddleController1 : MonoBehaviour
             hing.useMotor = true;
             motor.force = 10000;
             hing.motor = motor;
-            Asource.PlayOneShot(Aclip, volume);
+            if(Asource != null)
+            {
+                Asource.PlayOneShot(Aclip, volume);
+            }
            
         }
         else
