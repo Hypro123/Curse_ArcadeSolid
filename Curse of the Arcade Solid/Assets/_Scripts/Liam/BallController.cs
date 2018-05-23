@@ -15,7 +15,6 @@ public class BallController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-
         if(collision.gameObject.tag == "child")
         {
             //this.gameObject.SetActive(false);
